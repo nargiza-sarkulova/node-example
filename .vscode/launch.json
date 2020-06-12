@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to Mocha in Docker",
+            "type": "node",
+            "request": "attach",
+            "port": 5858,
+            "preLaunchTask": "runMochaInDocker",
+            "address": "127.0.0.1",
+            "restart": false,
+            "sourceMaps": false
+        }
+    ]
+}
