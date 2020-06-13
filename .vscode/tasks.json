@@ -8,8 +8,19 @@
     "tasks": [
         {
             "label": "runMochaInDocker",
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "__________"
+                },
+                "background": {
+                    "activeOnStart": false,
+                    "beginsPattern": "Some pattern when the debugging process is about to start",
+                    "endsPattern": "Debugger listening"
+                }
+            },
             "args": [
-                "docker exec -i node-example bash -c \"./node_modules/mocha/bin/mocha --inspect-brk=0.0.0.0:5858 -t 10000 test/test.js\""
+                "docker exec -i node-example bash -c \"node --inspect-brk=0.0.0.0:5858 --inspect ./node_modules/.bin/mocha -t 10000 test/test.js\""
             ],
             "presentation": {
                 "reveal": "always",
@@ -18,3 +29,6 @@
         }
     ]
 }
+
+// https://stackoverflow.com/questions/46800810/vscode-how-to-debug-a-node-program-that-starts-its-own-debugger-using-a-launc
+// https://github.com/Microsoft/vscode/issues/6209
